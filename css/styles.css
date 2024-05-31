@@ -7,6 +7,11 @@
     background-color: #F5F5DC;
 }
 
+.mensagem-erro {
+    color: #FF0000;
+    font-size: 12px;
+}
+
 .campo-invalido {
     border-color: #FF0000;
 }
