@@ -24,9 +24,25 @@ campoNome.onkeyup = function() {
 
 campoNascimento.onkeyup = function() {
     let ano = campoNascimento.value;
+    let anoAtual = new Date().getFullYear();
+
+    ano = parseInt(ano);
+    console.log(anoAtual);
+    console.log(typeof ano)
     if (isNaN(ano)) {
         mensagemErroAno.style.visibility = "visible";
         mensagemErroAno.innerHTML = "Digite somente números!";
         mensagemErroAno.classList.add("mensagem-erro");
+        console.log(ano > anoAtual)
+    } else if (ano > anoAtual || ano <= 1902) {
+        console.log('err')
+        mensagemErroAno.style.visibility = "visible";
+        mensagemErroAno.innerHTML = "Digite um ano válido!";
+        mensagemErroAno.classList.add("mensagem-erro");
+    } else {
+        mensagemErroAno.innerHTML = "";
+        mensagemErroAno.style.visibility = "hidden";
+        mensagemErroAno.classList.remove("mensagem-erro");
+        mensagemErroAno.classList.add("campo-invalido");
     }
 }
