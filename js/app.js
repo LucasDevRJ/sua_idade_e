@@ -27,8 +27,6 @@ campoNascimento.onkeyup = function() {
     let anoAtual = new Date().getFullYear();
 
     ano = parseInt(ano);
-    console.log(anoAtual);
-    console.log(typeof ano)
     if (isNaN(ano)) {
         mensagemErroAno.style.visibility = "visible";
         mensagemErroAno.innerHTML = "Digite somente números!";
