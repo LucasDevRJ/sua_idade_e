@@ -10,6 +10,8 @@ var nomeValido = false;
 var anoValido = false;
 var generoEscolhido = false;
 
+var anoAtual = new Date().getFullYear();
+
 document.body.onload = function() {
     mensagemErroNome.style.visibility = "hidden";
     mensagemErroAno.style.visibility = "hidden";
@@ -28,7 +30,6 @@ campoNome.onkeyup = function() {
 
 campoNascimento.onkeyup = function() {
     let ano = campoNascimento.value;
-    let anoAtual = new Date().getFullYear();
 
     ano = parseInt(ano);
     if (ano > anoAtual || ano <= 1902) {
@@ -50,6 +51,12 @@ botao.onclick = function() {
 
     if (!generoEscolhido) {
         validaGenero();
+    }
+
+    if (nomeValido && anoValido && generoEscolhido) {
+        let ano = campoNascimento.value;
+        let idade = anoAtual - ano;
+        
     }
 }
 
@@ -93,14 +100,12 @@ function validaGenero() {
             mensagemErroGenero.innerHTML = "";
             mensagemErroGenero.style.visibility = "hidden";
             generoEscolhido = true;
-            console.log(generoEscolhido);
             break;
         } else {
             mensagemErroGenero.style.visibility = "visible";
             mensagemErroGenero.innerHTML = "Selecione o seu gênero!";
             mensagemErroGenero.classList.add("mensagem-erro");
             generoEscolhido = false;
-            console.log(generoEscolhido);
         }
     }
 }
