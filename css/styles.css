@@ -43,6 +43,10 @@ body {
     margin: 10px;
 }
 
+p, .generos label {
+    font-size: 20px;
+}
+
 .mensagem-erro {
     margin-top: 10px;
     color: #FF0000;
@@ -55,4 +59,9 @@ body {
 
 .campo-valido {
     border-color: #0000FF;
+}
+
+.botao {
+    padding: 12px 37px;
+    margin-top: 20px;
 }
