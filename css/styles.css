@@ -70,6 +70,7 @@ p, .generos label {
 
 .resposta {
     margin-top: 20px;
+    text-align: center;
 }
 
 @media screen and (max-width: 300px) {
@@ -82,7 +83,15 @@ p, .generos label {
         font-size: 12px;
     }
 
-    .divisao-entrada label, p, .generos label {
+    .divisao-entrada label, p, .generos label, .resposta {
         font-size: 16px;
+    }
+
+    #botao {
+        padding: 10px 23px;
+    }
+
+    .resposta {
+        margin: 20px 30px;
     }
 }
