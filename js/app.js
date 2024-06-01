@@ -2,9 +2,12 @@ var campoNome = document.getElementById("nome");
 var campoNascimento = document.getElementById("ano");
 var botao = document.getElementById("botao");
 
+var genero = "";
+
 var mensagemErroNome = document.getElementById("erro-nome");
 var mensagemErroAno = document.getElementById("erro-ano");
 var mensagemErroGenero = document.getElementById("erro-genero");
+var divisaoResposta = document.getElementById("divisao-resposta");
 
 var nomeValido = false;
 var anoValido = false;
@@ -56,7 +59,13 @@ botao.onclick = function() {
     if (nomeValido && anoValido && generoEscolhido) {
         let ano = campoNascimento.value;
         let idade = anoAtual - ano;
-        
+
+        let p = document.createElement("p");
+        let resposta = document.createTextNode(`Olá <strong>${campoNome.value}</strong>! Você é uma pessoa do gênero <strong>${genero}</strong> e tem <strong>${idade}</strong> anos de idade.`);
+
+        p.appendChild(resposta);
+        p.classList.add("resposta");
+        divisaoResposta.appendChild(p);
     }
 }
 
@@ -100,6 +109,7 @@ function validaGenero() {
             mensagemErroGenero.innerHTML = "";
             mensagemErroGenero.style.visibility = "hidden";
             generoEscolhido = true;
+            genero = generos[i].value;
             break;
         } else {
             mensagemErroGenero.style.visibility = "visible";
