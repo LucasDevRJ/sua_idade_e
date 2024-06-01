@@ -6,8 +6,7 @@ var mensagemErroNome = document.getElementById("erro-nome");
 var mensagemErroAno = document.getElementById("erro-ano");
 
 var nomeValido = false;
-
-console.log(botao)
+var anoValido = false;
 
 document.body.onload = function() {
     mensagemErroNome.style.visibility = "hidden";
@@ -29,32 +28,21 @@ campoNascimento.onkeyup = function() {
     let anoAtual = new Date().getFullYear();
 
     ano = parseInt(ano);
-    if (isNaN(ano)) {
-        campoNascimento.classList.remove("campo-valido");
-        campoNascimento.classList.add("campo-invalido");
-        mensagemErroAno.style.visibility = "visible";
-        mensagemErroAno.innerHTML = "Digite somente números!";
-        mensagemErroAno.classList.add("mensagem-erro");
-        console.log(ano > anoAtual)
-    } else if (ano > anoAtual || ano <= 1902) {
-        campoNascimento.classList.remove("campo-valido");
-        campoNascimento.classList.add("campo-invalido");
-        mensagemErroAno.style.visibility = "visible";
-        mensagemErroAno.innerHTML = "Digite um ano válido!";
-        mensagemErroAno.classList.add("mensagem-erro");
+    if (ano > anoAtual || ano <= 1902) {
+        anoValido = false;
     } else {
-        campoNascimento.classList.remove("campo-valido");
-        campoNascimento.classList.add("campo-valido");
-        mensagemErroAno.innerHTML = "";
-        mensagemErroAno.style.visibility = "hidden";
-        mensagemErroAno.classList.remove("mensagem-erro");
-        mensagemErroAno.classList.add("campo-invalido");
+        anoValido = true;
     }
+    validaAno();
 }
 
 botao.onclick = function() {
     if (!nomeValido) {
         validaNome();
+    }
+
+    if (!anoValido) {
+        validaAno();
     }
 }
 
@@ -70,5 +58,22 @@ function validaNome() {
         mensagemErroNome.innerHTML = "";
         campoNome.classList.remove("campo-invalido");
         campoNome.classList.add("campo-valido");
+    }
+}
+
+function validaAno() {
+    if (!anoValido) {
+        campoNascimento.classList.remove("campo-valido");
+        campoNascimento.classList.add("campo-invalido");
+        mensagemErroAno.style.visibility = "visible";
+        mensagemErroAno.innerHTML = "Digite um ano válido!";
+        mensagemErroAno.classList.add("mensagem-erro");
+    } else {
+        campoNascimento.classList.remove("campo-valido");
+        campoNascimento.classList.add("campo-valido");
+        mensagemErroAno.innerHTML = "";
+        mensagemErroAno.style.visibility = "hidden";
+        mensagemErroAno.classList.remove("mensagem-erro");
+        mensagemErroAno.classList.add("campo-invalido");
     }
 }
