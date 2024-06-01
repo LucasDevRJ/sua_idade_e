@@ -1,7 +1,13 @@
 var campoNome = document.getElementById("nome");
 var campoNascimento = document.getElementById("ano");
+var botao = document.getElementById("botao");
+
 var mensagemErroNome = document.getElementById("erro-nome");
 var mensagemErroAno = document.getElementById("erro-ano");
+
+var nomeValido = false;
+
+console.log(botao)
 
 document.body.onload = function() {
     mensagemErroNome.style.visibility = "hidden";
@@ -11,15 +17,11 @@ document.body.onload = function() {
 campoNome.onkeyup = function() {
     let nome = campoNome.value;
     if (nome.length == 0) {
-        campoNome.classList.remove("campo-valido");
-        campoNome.classList.add("campo-invalido");
-        mensagemErroNome.classList.add("mensagem-erro");
-        mensagemErroNome.style.visibility = "visible";
-        mensagemErroNome.innerHTML = "Digite seu nome!";
+        nomeValido = false;
     } else {
-        campoNome.classList.remove("campo-invalido");
-        campoNome.classList.add("campo-valido");
+        nomeValido = true;
     }
+    validaNome();
 }
 
 campoNascimento.onkeyup = function() {
@@ -47,5 +49,25 @@ campoNascimento.onkeyup = function() {
         mensagemErroAno.style.visibility = "hidden";
         mensagemErroAno.classList.remove("mensagem-erro");
         mensagemErroAno.classList.add("campo-invalido");
+    }
+}
+
+botao.onclick = function() {
+    if (!nomeValido) {
+        validaNome();
+    }
+}
+
+function validaNome() {
+    if (!nomeValido) {
+        campoNome.classList.remove("campo-valido");
+        campoNome.classList.add("campo-invalido");
+        mensagemErroNome.classList.add("mensagem-erro");
+        mensagemErroNome.style.visibility = "visible";
+        mensagemErroNome.innerHTML = "Digite seu nome!";
+    } else {        
+        mensagemErroNome.style.visibility = "hidden";
+        campoNome.classList.remove("campo-invalido");
+        campoNome.classList.add("campo-valido");
     }
 }

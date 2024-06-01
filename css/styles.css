@@ -61,7 +61,8 @@ p, .generos label {
     border-color: #0000FF;
 }
 
-.botao {
+#botao {
     padding: 12px 37px;
     margin-top: 20px;
+    cursor: pointer;
 }
