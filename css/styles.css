@@ -73,6 +73,40 @@ p, .generos label {
     text-align: center;
 }
 
+@media screen and (max-width: 900px) {
+    #principal {
+        width: 70%;
+    }
+
+    .campo {
+        width: 250px;
+        padding: 14px 16px;
+    }
+
+    .divisao-entrada label, p, .generos label, .resposta {
+        font-size: 22px;
+    }
+
+    #botao {
+        padding: 17px 53px;
+        font-size: 14px;
+    }
+
+    .mensagem-erro {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #principal {
+        width: 70%;
+    }
+
+    .resposta {
+        margin: 20px;
+    }
+}
+
 @media screen and (max-width: 300px) {
     #principal {
         width: 90%;
