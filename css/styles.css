@@ -1,5 +1,7 @@
 body {
     background-color: #AFEEEE;
+    height: 633px;
+    display: flex;
 }
 
 #principal {
@@ -9,11 +11,9 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #FFFAFA;
-    height: 600px;
+    height: 500px;
     width: 50%;
     margin: auto;
-    position: relative;
-    top: 15px;
     border-radius: 5px;
 }
 
@@ -70,4 +70,19 @@ p, .generos label {
 
 .resposta {
     margin-top: 20px;
+}
+
+@media screen and (max-width: 300px) {
+    #principal {
+        width: 90%;
+    }
+
+    .campo {
+        width: 92%;
+        font-size: 12px;
+    }
+
+    .divisao-entrada label, p, .generos label {
+        font-size: 16px;
+    }
 }
