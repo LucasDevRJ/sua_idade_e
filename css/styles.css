@@ -11,7 +11,9 @@ body {
     background-color: #FFFAFA;
     height: 600px;
     width: 50%;
-    margin: 0 auto;
+    margin: auto;
+    position: relative;
+    top: 15px;
     border-radius: 5px;
 }
 
