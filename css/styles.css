@@ -12,7 +12,6 @@ body {
     justify-content: center;
     background-color: #FFFAFA;
     height: 500px;
-    width: 50%;
     margin: auto;
     border-radius: 5px;
 }
@@ -21,11 +20,6 @@ body {
     margin: 10px 0;
     display: flex;
     flex-direction: column;
-}
-
-.divisao-entrada label {
-    font-size: 20px;
-    margin: 5px 0;
 }
 
 .campo {
@@ -42,10 +36,6 @@ body {
 .generos {
     display: flex;
     margin: 10px;
-}
-
-p, .generos label {
-    font-size: 20px;
 }
 
 .mensagem-erro {
@@ -66,6 +56,11 @@ p, .generos label {
     padding: 12px 37px;
     margin-top: 20px;
     cursor: pointer;
+    font-weight: bold;
+    background-color: #F5F5DC;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
 }
 
 .resposta {
@@ -73,41 +68,7 @@ p, .generos label {
     text-align: center;
 }
 
-@media screen and (max-width: 900px) {
-    #principal {
-        width: 70%;
-    }
-
-    .campo {
-        width: 250px;
-        padding: 14px 16px;
-    }
-
-    .divisao-entrada label, p, .generos label, .resposta {
-        font-size: 22px;
-    }
-
-    #botao {
-        padding: 17px 53px;
-        font-size: 14px;
-    }
-
-    .mensagem-erro {
-        font-size: 16px;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    #principal {
-        width: 70%;
-    }
-
-    .resposta {
-        margin: 20px;
-    }
-}
-
-@media screen and (max-width: 300px) {
+@media screen and (min-width: 300px) {
     #principal {
         width: 90%;
     }
@@ -127,5 +88,47 @@ p, .generos label {
 
     .resposta {
         margin: 20px 30px;
+    }
+}
+
+
+@media screen and (min-width: 600px) {
+    #principal {
+        width: 70%;
+    }
+
+    .divisao-entrada label, p, .generos label, .resposta {
+        font-size: 18px;
+    }
+
+    .campo {
+        width: 200px;
+        padding: 14px 16px;
+        font-size: 14px;
+    }
+
+    #botao {
+        padding: 14px 34px;
+        font-size: 12px;
+    }
+
+    .resposta {
+        margin: 20px;
+    }
+}
+
+
+@media screen and (min-width: 900px) {
+    #principal {
+        width: 50%;
+    }
+
+    .divisao-entrada label {
+        font-size: 20px;
+        margin: 5px 0;
+    }
+
+    p, .generos label {
+        font-size: 20px;
     }
 }
