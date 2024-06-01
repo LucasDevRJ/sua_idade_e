@@ -12,6 +12,7 @@ var divisaoResposta = document.getElementById("divisao-resposta");
 var nomeValido = false;
 var anoValido = false;
 var generoEscolhido = false;
+var respostaExibida = false;
 
 var anoAtual = new Date().getFullYear();
 
@@ -56,16 +57,17 @@ botao.onclick = function() {
         validaGenero();
     }
 
-    if (nomeValido && anoValido && generoEscolhido) {
+    if (nomeValido && anoValido && generoEscolhido && !respostaExibida) {
         let ano = campoNascimento.value;
         let idade = anoAtual - ano;
 
         let p = document.createElement("p");
-        let resposta = document.createTextNode(`Olá <strong>${campoNome.value}</strong>! Você é uma pessoa do gênero <strong>${genero}</strong> e tem <strong>${idade}</strong> anos de idade.`);
+        let resposta = document.createTextNode(`Olá ${campoNome.value}! Você é uma pessoa do gênero ${genero} e tem ${idade} anos de idade.`);
 
         p.appendChild(resposta);
         p.classList.add("resposta");
         divisaoResposta.appendChild(p);
+        respostaExibida = true;
     }
 }
 
