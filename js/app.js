@@ -28,16 +28,21 @@ campoNascimento.onkeyup = function() {
 
     ano = parseInt(ano);
     if (isNaN(ano)) {
+        campoNascimento.classList.remove("campo-valido");
+        campoNascimento.classList.add("campo-invalido");
         mensagemErroAno.style.visibility = "visible";
         mensagemErroAno.innerHTML = "Digite somente números!";
         mensagemErroAno.classList.add("mensagem-erro");
         console.log(ano > anoAtual)
     } else if (ano > anoAtual || ano <= 1902) {
-        console.log('err')
+        campoNascimento.classList.remove("campo-valido");
+        campoNascimento.classList.add("campo-invalido");
         mensagemErroAno.style.visibility = "visible";
         mensagemErroAno.innerHTML = "Digite um ano válido!";
         mensagemErroAno.classList.add("mensagem-erro");
     } else {
+        campoNascimento.classList.remove("campo-valido");
+        campoNascimento.classList.add("campo-valido");
         mensagemErroAno.innerHTML = "";
         mensagemErroAno.style.visibility = "hidden";
         mensagemErroAno.classList.remove("mensagem-erro");
