@@ -4,13 +4,16 @@ var botao = document.getElementById("botao");
 
 var mensagemErroNome = document.getElementById("erro-nome");
 var mensagemErroAno = document.getElementById("erro-ano");
+var mensagemErroGenero = document.getElementById("erro-genero");
 
 var nomeValido = false;
 var anoValido = false;
+var generoEscolhido = false;
 
 document.body.onload = function() {
     mensagemErroNome.style.visibility = "hidden";
     mensagemErroAno.style.visibility = "hidden";
+    mensagemErroGenero.style.visibility = "hidden";
 }
 
 campoNome.onkeyup = function() {
@@ -44,6 +47,10 @@ botao.onclick = function() {
     if (!anoValido) {
         validaAno();
     }
+
+    if (!generoEscolhido) {
+        validaGenero();
+    }
 }
 
 function validaNome() {
@@ -75,5 +82,25 @@ function validaAno() {
         mensagemErroAno.style.visibility = "hidden";
         mensagemErroAno.classList.remove("mensagem-erro");
         mensagemErroAno.classList.add("campo-invalido");
+    }
+}
+
+function validaGenero() {
+    let generos = document.getElementsByName("genero");
+    let quantidadeGeneros = generos.length;
+    for (let i = 0; i < quantidadeGeneros; i++) {
+        if (generos[i].checked) {
+            mensagemErroGenero.innerHTML = "";
+            mensagemErroGenero.style.visibility = "hidden";
+            generoEscolhido = true;
+            console.log(generoEscolhido);
+            break;
+        } else {
+            mensagemErroGenero.style.visibility = "visible";
+            mensagemErroGenero.innerHTML = "Selecione o seu gênero!";
+            mensagemErroGenero.classList.add("mensagem-erro");
+            generoEscolhido = false;
+            console.log(generoEscolhido);
+        }
     }
 }
