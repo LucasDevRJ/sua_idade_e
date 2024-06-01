@@ -67,6 +67,7 @@ function validaNome() {
         mensagemErroNome.innerHTML = "Digite seu nome!";
     } else {        
         mensagemErroNome.style.visibility = "hidden";
+        mensagemErroNome.innerHTML = "";
         campoNome.classList.remove("campo-invalido");
         campoNome.classList.add("campo-valido");
     }
