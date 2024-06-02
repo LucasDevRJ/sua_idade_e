@@ -1,6 +1,6 @@
 body {
     background-color: #AFEEEE;
-    height: 633px;
+    height: 700px;
     display: flex;
 }
 
@@ -11,9 +11,10 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #FFFAFA;
-    height: 500px;
+    height: 600px;
     margin: auto;
     border-radius: 5px;
+    padding: 20px;
 }
 
 .divisao-entrada {
@@ -63,9 +64,15 @@ body {
     border-radius: 5px;
 }
 
-.resposta {
-    margin-top: 20px;
-    text-align: center;
+#divisao-resposta {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#divisao-resposta img {
+    width: 30%;
 }
 
 @media screen and (min-width: 300px) {

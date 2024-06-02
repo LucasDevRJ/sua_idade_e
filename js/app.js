@@ -68,6 +68,8 @@ botao.onclick = function() {
         p.classList.add("resposta");
         divisaoResposta.appendChild(p);
         respostaExibida = true;
+
+        carregaImagem(idade);
     }
 }
 
@@ -120,4 +122,35 @@ function validaGenero() {
             generoEscolhido = false;
         }
     }
+}
+
+function carregaImagem(idade) {
+    let img = document.createElement("img");
+    if (genero == "Masculino") {
+        if (idade <= 2) {
+            img.setAttribute("src", "../img/bebe-masculino.jpg");
+        } else if (idade >= 3 && idade < 12) {
+            img.setAttribute("src", "../img/crianca-masculino.jpg");
+        } else if (idade >= 12 && idade <= 21) {
+            img.setAttribute("src", "../img/adolescente-masculino.jpg");
+        } else if (idade > 21 && idade < 64) {
+            img.setAttribute("src", "../img/adulto-masculino.jpg");
+        } else {
+            img.setAttribute("src", "../img/idoso-masculino.jpg")
+        }
+    } else if (genero == "Feminino") {
+        if (idade <= 2) {
+            img.setAttribute("src", "../img/bebe-femea.jpg");
+        } else if (idade >= 3 && idade < 12) {
+            img.setAttribute("src", "../img/crianca-femea.jpg");
+        } else if (idade >= 12 && idade <= 21) {
+            img.setAttribute("src", "../img/adolescente-femea.jpg");
+        } else if (idade > 21 && idade < 64) {
+            img.setAttribute("src", "../img/adulto-femea.jpg");
+        } else {
+            img.setAttribute("src", "../img/idoso-femea.jpg")
+        }
+    }
+
+    divisaoResposta.appendChild(img);
 }
